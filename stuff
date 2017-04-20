@@ -1,0 +1,87 @@
+package com.example.aruns1494.attendance.attendance;
+
+import android.graphics.Color;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class Main2Activity extends AppCompatActivity {
+
+    EditText userID, eventID;
+    Button button;
+    TextView status;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        userID = (EditText)findViewById(R.id.editText);
+        eventID = (EditText)findViewById(R.id.editText2);
+
+        button = (Button) findViewById(R.id.button);
+        status = (TextView) findViewById(R.id.result);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String uID = userID.getText().toString();
+                String evID = eventID.getText().toString();
+
+                // IF EVENT ID exists and USER is registered for the EVENT ID
+                if(true){
+                    status.setTextColor(Color.GREEN);
+                    status.setText("SUCCESS");
+                }
+                else
+                {
+                    status.setTextColor(Color.RED);
+                    status.setText("FAILURE");
+                }
+            }
+        });
+    }
+}
+///
+
+
+
+///
+
+
+
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.aruns1494.attendance.attendance.Main2Activity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_main2" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+</android.support.design.widget.CoordinatorLayout>
